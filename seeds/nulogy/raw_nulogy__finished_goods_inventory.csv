@@ -1,0 +1,5 @@
+product_code,description,onhand_qty,uom,site,room_quantities,updated_at
+SKU-1001,Blue Widget 8oz,475,Units,Innova,"[{""room"":""R1"",""qty"":300},{""room"":""R2"",""qty"":175}]",10/19/25
+SKU-1002,Green Widget 16oz,1220,EA,Innova,,10/18/2025
+1003,Red Widget 4oz,,Each,Innova,[],2025-10-17 07:00
+SKU-1004,Yellow Widget 12oz,800,EA,Innova,"[{""room"":""Main"",""qty"":600},{""room"":""Overflow"",""qty"":200}]",2025/10/18

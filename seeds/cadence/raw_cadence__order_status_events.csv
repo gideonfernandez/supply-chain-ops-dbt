@@ -1,0 +1,11 @@
+order_id,event_type,event_ts,details
+SO-50001,created,2025-10-18 07:31:00,
+SO-50001,allocated,2025-10-18 12:05:10,2 lines allocated
+SO-50002,created,10/18/25 09:12:45,
+SO-50002,allocated,10/18/25 15:47:03,
+SO-50003,created,2025/10/19 08:01,
+SO-50003,picking,2025/10/19 11:22,Picker 12
+SO-50004,created,2025-10-19T12:10:00Z,
+SO-50004,allocated,2025-10-19T13:00:00Z,
+SO-50004,packed,2025-10-19T14:20:00Z,Box 1/1
+SO-50004,shipped,2025-10-19T16:45:30Z,UPS 1Z123...

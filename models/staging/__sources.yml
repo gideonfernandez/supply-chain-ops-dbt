@@ -1,0 +1,49 @@
+version: 2
+
+# Try using these source definitions instead!
+sources:
+  - name: ecom
+    schema: "{{ target.schema }}_raw"
+    description: E-commerce data for the Jaffle Shop
+    tables:
+      - name: raw_customers
+        description: One record per person who has purchased one or more items
+      - name: raw_orders
+        description: One record per order (consisting of one or more order items)
+        config:
+          loaded_at_field: ordered_at
+      - name: raw_items
+        description: Items included in an order
+      - name: raw_stores
+        config:
+          loaded_at_field: opened_at
+      - name: raw_products
+        description: One record per SKU for items sold in stores
+      - name: raw_supplies
+        description: One record per supply per SKU of items sold in stores
+  - name: cadence
+    schema: "{{ target.schema }}_raw"
+    description: Cadence manufacturing and supply chain management data
+    tables:
+      - name: raw_cadence__inventory_fg_report
+        description: One record per SKU
+      - name: raw_cadence__order_status_events
+        description: One record per order_id and event_type
+      - name: raw_cadence__orders
+        description: One record per order_id
+  - name: mar_kov
+    schema: "{{ target.schema }}_raw"
+    description: Mar-Kov manufacturing and supply chain management data
+    tables:
+      - name: raw_mar_kov__raw_ingredients
+        description: One record per SKU
+  - name: nulogy
+    schema: "{{ target.schema }}_raw"
+    description: Nulogy manufacturing and supply chain management data
+    tables:
+      - name: raw_nulogy__finished_goods_inventory
+        description: One record per product SKU
+      - name: raw_nulogy__inventory_consumption
+        description: One record per product SKU, product code, and ingredient sku
+      - name: raw_nulogy__work_orders
+        description: One record per work order id

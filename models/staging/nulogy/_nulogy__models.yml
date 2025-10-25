@@ -1,0 +1,134 @@
+version: 2
+
+models:
+  - name: base_nulogy__finished_goods_inventory
+    description: "Base model for Nulogy finished goods inventory data. Contains one record per product SKU with inventory levels and room quantity details stored as JSON."
+    columns:
+      - name: finished_goods_inventory_uuid
+        description: "Unique row identifier for base_nulogy__finished_goods_inventory"
+        data_tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Normalized product SKU identifier"
+        data_tests:
+          - unique
+          - not_null
+      - name: product_description
+        description: "Product name/description"
+      - name: uom
+        description: "Normalized unit of measure"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['EA', 'KG', 'LB', 'CS']
+      - name: warehouse
+        description: "Manufacturing warehouse identifier"
+      - name: room_quantities_v
+        description: "JSON array containing room and quantity information"
+      - name: onhand_qty
+        description: "Total quantity on hand across all rooms"
+      - name: updated_at
+        description: "Timestamp when the inventory record was last updated"
+
+  - name: stg_nulogy__finished_goods_inventory
+    description: "Staging model for Nulogy finished goods inventory data. Explodes room quantity JSON into individual rows, creating one record per product and room combination."
+    columns:
+      - name: finished_goods_inventory_uuid
+        description: "Unique identifier for each product-room inventory record (surrogate key)"
+        data_tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Normalized product SKU identifier"
+        data_tests:
+          - not_null
+      - name: product_description
+        description: "Product name/description"
+      - name: uom
+        description: "Normalized unit of measure"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['EA', 'KG', 'LB', 'CS']
+      - name: warehouse
+        description: "Manufacturing warehouse identifier"
+      - name: room_index
+        description: "Index position of the room in the original JSON array"
+      - name: room
+        description: "Specific room identifier within the warehouse"
+      - name: room_qty
+        description: "Quantity stored in this specific room"
+      - name: onhand_qty
+        description: "Total quantity on hand across all rooms"
+      - name: updated_at
+        description: "Timestamp when the inventory record was last updated"
+
+  - name: stg_nulogy__inventory_consumption
+    description: "Staging model for Nulogy inventory consumption tracking. Contains one record per work order, product, and ingredient combination showing quantities consumed."
+    columns:
+      - name: inventory_consumption_uuid
+        description: "Unique identifier for each consumption record (surrogate key)"
+        data_tests:
+          - unique
+          - not_null
+      - name: work_order_id
+        description: "Work order identifier"
+        data_tests:
+          - not_null
+      - name: product_id
+        description: "Normalized product SKU identifier"
+        data_tests:
+          - not_null
+      - name: raw_ingredient_id
+        description: "Raw ingredient SKU consumed"
+        data_tests:
+          - not_null
+      - name: qty_consumed
+        description: "Quantity of ingredient consumed for this product"
+      - name: uom
+        description: "Normalized unit of measure for consumption"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['EA', 'KG', 'LB', 'CS']
+      - name: warehouse
+        description: "Manufacturing warehouse where consumption occurred"
+      - name: updated_at
+        description: "Timestamp when the consumption record was created"
+
+  - name: stg_nulogy__work_orders
+    description: "Staging model for Nulogy work orders. Contains one record per work order with production planning details and status."
+    columns:
+      - name: work_order_uuid
+        description: "Unique work order uuid identifier"
+        data_tests:
+          - unique
+          - not_null    
+      - name: work_order_id
+        description: "Unique work order identifier"
+        data_tests:
+          - unique
+          - not_null
+      - name: product_id
+        description: "Normalized product SKU identifier"
+      - name: qty_planned
+        description: "Planned quantity to be produced"
+      - name: uom
+        description: "Normalized unit of measure for production"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['EA', 'KG', 'LB', 'CS']
+      - name: warehouse
+        description: "Manufacturing warehouse where work order will be executed"
+      - name: status
+        description: "Current status of the work order"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['planned', 'in_process', 'on_hold', 'completed', 'cancelled']
+      - name: start_date
+        description: "Planned or actual start date for the work order"
+      - name: end_date
+        description: "Planned or actual end date for the work order"

@@ -1,0 +1,6 @@
+ingredient_sku,ingredient_name,lot_number,expiry_date,qty_on_hand,uom,location,room,last_updated
+ING-001,Citric Acid,LOT-CA-240901,2026-09-01,"1,200",KG,NanoChem,RM-A1,2025-10-15 08:00:00
+ING-002,Glycerin,LOT-GLY-241001,2027/01/31,850,kg,NanoChem,RM-A2,10/18/2025 14:35
+ING-003,Fragrance Base,LOT-FR-240930,2025-12-31,75,LB,NanoChem,RM-B1,2025-10-19
+ING-004,Colorant Red #5,LOT-RED5-240701,,,kg,NanoChem,,2025-10-20 07:10:22
+ING-005,Preservative PX,LOT-PX-240825,2026-08-25,30,CS,NanoChem,RM-C3,2025-10-20 16:42:00

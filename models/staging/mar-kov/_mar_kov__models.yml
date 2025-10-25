@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: stg_mar_kov__raw_ingredients
+    description: "Staging model for Mar-Kov raw ingredients inventory data. Contains one record per ingredient SKU and lot number with current inventory levels, expiry dates, and warehouse details."
+    columns:
+      - name: raw_ingredient_uuid
+        description: "Unique uuid identifier for the raw ingredient"
+        data_tests:
+          - unique
+          - not_null
+      - name: raw_ingredient_id
+        description: "Unique identifier for the raw ingredient"
+        data_tests:
+          - unique
+          - not_null
+      - name: lot_number
+        description: "Lot number for the specific batch of ingredient"
+      - name: ingredient_name
+        description: "Name/description of the raw ingredient"
+      - name: uom
+        description: "Normalized unit of measure for the ingredient"
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['EA', 'KG', 'LB', 'CS']
+      - name: warehouse
+        description: "Warehouse where the ingredient is stored"
+      - name: room
+        description: "Specific room within the warehouse"
+      - name: onhand_qty
+        description: "Current quantity on hand for this ingredient lot"
+      - name: expiry_date
+        description: "Expiry date for the ingredient lot (may be null if not applicable)"
+      - name: updated_at
+        description: "Timestamp when the inventory record was last updated"

@@ -1,0 +1,4 @@
+wo_id,product_code,qty_planned,uom,start_date,end_date,site,status
+WO-9001,SKU-1001,1000,EA,2025-10-18,2025-10-20,Innova,in_process
+WO-9002,SKU-1002,1500,Each,10/18/25,10/21/25,Innova,planned
+WO-9003,SKU-1004,800,EA,2025/10/19,,Innova,on_hold

@@ -1,0 +1,5 @@
+sku,name,warehouse,available_qty,unit,updated_at,location,room
+1001,Blue Widget 8oz,Cadence,480,ea,2025-10-19 06:30:00,Main,A-01
+1002,Green Widget 16oz,Cadence,1195,ea,2025-10-19 06:30:00,Main,A-02
+1005,Purple Widget 32oz,Cadence,900,EA,2025-10-19 06:30:00,Overflow,
+SKU-1004,Yellow Widget 12oz,Cadence,,EA,2025-10-18,Main,A-03

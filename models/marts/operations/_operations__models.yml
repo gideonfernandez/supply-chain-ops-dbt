@@ -1,0 +1,98 @@
+# _operations__models.yml
+
+models:
+  # =========================
+  # OPERATIONS • INVENTORY
+  # =========================
+  - name: inventory
+    description: >
+      current finished-goods inventory by warehouse and sku.
+    columns:
+      - name: warehouse
+        description: warehouse/location name.
+        data_tests:
+          - not_null
+
+      - name: sku
+        description: product identifier (normalized in staging).
+        data_tests:
+          - not_null
+
+      - name: description
+        description: human-readable product description.
+
+      - name: type
+        description: inventory item type (expected finished_good).
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['finished_good', 'ingredient']
+
+      - name: onhand_qty
+        description: on-hand quantity for this sku at this warehouse.
+        data_tests:
+          - not_null
+
+
+  # =========================
+  # OPERATIONS • FG FORECAST
+  # =========================
+  - name: fg_forecast
+    description: >
+      finished-goods forecast with ingredient constraints and potential output.
+      each row represents a (product, ingredient) constraint line contributing
+      to total_potential_fg.
+    columns:
+      - name: product_id
+        description: finished good identifier (should align with inventory.sku).
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('inventory')
+                field: sku
+                severity: warn
+
+      - name: product_description
+        description: finished good description.
+
+      - name: current_fg_onhand
+        description: current finished-goods on hand for the product.
+
+      - name: raw_ingredient_id
+        description: ingredient identifier used in the product.
+
+      - name: ingredient_name
+        description: ingredient name.
+
+      - name: ingredient_onhand
+        description: on-hand quantity of the ingredient.
+
+      - name: ingredient_uom
+        description: unit of measure for the ingredient.
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['KG','LB','CS','EA']
+
+      - name: consumption_per_unit
+        description: ingredient quantity consumed per 1 finished-good unit.
+        data_tests:
+          - not_null
+
+      - name: potential_units
+        description: potential finished-good units limited by this ingredient.
+
+      - name: expiry_date
+        description: expiration date for the constraining ingredient lot.
+
+      - name: total_potential_fg
+        description: total potential finished-good units (considering all constraints).
+
+      - name: constraint_status
+        description: status flag for the ingredient constraint (e.g., bottleneck / sufficient).
+        data_tests:
+          - accepted_values:
+              arguments:
+                values: ['bottleneck','sufficient']
+                quote: true

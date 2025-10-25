@@ -1,0 +1,5 @@
+order_id,customer,order_date,warehouse,status,ship_method
+SO-50001,Retailer A,2025-10-18,Cadence,created,UPS-GND
+SO-50002,Retailer B,10/18/25,Cadence,allocated,FEDEX-2D
+SO-50003,Retailer C,2025/10/19,Cadence,picking,LTL
+SO-50004,Retailer A,2025-10-19 13:45:22,Cadence,shipped,UPS-NDA

@@ -1,0 +1,6 @@
+work_order_id,product_code,ingredient_sku,qty_consumed,uom,site,timestamp
+WO-9001,SKU-1001,ING-001,120,KG,Innova,2025-10-18T09:03:01Z
+WO-9001,SKU-1001,ING-002,35,kg,Innova,10/18/2025 10:15
+WO-9002,SKU-1002,ING-003,55,lb,Innova,2025/10/19 08:30
+WO-9003,1004,ING-004,,KG,Innova,2025-10-19 12:00:00
+WO-9003,SKU-1004,ING-005,2,CS,Innova,2025-10-19 12:05:00

@@ -1,0 +1,80 @@
+# _int_operations__models.yml
+
+models:
+  - name: int_warehouse_inventory
+    description: >
+      current finished-goods inventory by product, aggregated at the warehouse level.
+    columns:
+      - name: product_id
+        description: business identifier for the finished good.
+        data_tests:
+          - not_null
+          - unique
+      - name: current_fg_onhand
+        description: current on-hand quantity of finished goods.
+      - name: warehouse_count
+        description: number of warehouses holding stock for this product.
+
+  - name: int_current_ingredient_inventory
+    description: >
+      latest snapshot of raw-ingredient inventory levels by ingredient.
+    columns:
+      - name: raw_ingredient_id
+        description: unique identifier for the raw ingredient.
+        data_tests:
+          - not_null
+          - unique
+      - name: ingredient_name
+        description: human-readable ingredient name.
+      - name: uom
+        description: unit of measure for onhand_qty.
+        data_tests:
+          - accepted_values:
+              arguments:
+                 values: ['KG','LB','CS','EA']
+      - name: onhand_qty
+        description: Current on-hand quantity for the ingredient.
+      - name: expiry_date
+        description: Expiration date of the current stock position.
+      - name: updated_at
+        description: Timestamp when the inventory record was last updated.
+
+  - name: int_ingredient_consumption_rates
+    description: >
+      Per-product ingredient consumption rates (BOM-style) indicating how much
+      of each ingredient is consumed to produce one unit of the finished good.
+    columns:
+      - name: raw_ingredient_id
+        description: Ingredient identifier referenced by the BOM line.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('int_current_ingredient_inventory')
+                field: raw_ingredient_id
+                severity: warn
+      - name: product_id
+        description: Finished good identifier the ingredient rolls up to.
+        data_tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('int_warehouse_inventory')
+                field: product_id
+                severity: warn
+      - name: ingredient_name
+        description: Redundant name for convenience; should match the inventory table.
+      - name: ingredient_uom
+        description: Unit of measure for the ingredient quantity consumed per product unit.
+        data_tests:
+          - accepted_values:
+              arguments:
+                 values: ['KG','LB','CS','EA']
+      - name: product_uom
+        description: Unit of measure for the finished good (e.g., EA).
+        data_tests:
+          - accepted_values:
+              arguments:
+                 values: ['KG','LB','CS','EA']
+      - name: consumption_per_unit
+        description: Quantity of ingredient consumed to produce one unit of product.
