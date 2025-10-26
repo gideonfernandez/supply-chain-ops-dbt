@@ -1,8 +1,8 @@
 # 📦 Supply Chain Analytics Platform
 
-_Powered by the dbt Fusion engine_
+_An end-to-end modern data stack integrating **dbt Fusion**, **Orchestra**, and **Omni Analytics**_
 
-> **A modern data transformation pipeline for multi-source supply chain operations**
+> **A complete analytics solution from transformation to orchestration to self-service business intelligence**
 
 [![dbt](https://img.shields.io/badge/dbt-FF694B?style=for-the-badge&logo=dbt&logoColor=white)](https://www.getdbt.com/)
 [![Snowflake](https://img.shields.io/badge/Snowflake-29B5E8?style=for-the-badge&logo=snowflake&logoColor=white)](https://www.snowflake.com/)
@@ -11,7 +11,16 @@ _Powered by the dbt Fusion engine_
 
 ## Overview
 
-This dbt project provides a comprehensive analytics framework for data-driven supply chain operations by integrating data into a single source of truth from multiple manufacturing and distribution systems to deliver actionable insights on inventory levels, production capacity, and material constraints.
+This project provides a comprehensive analytics framework for data-driven supply chain operations by integrating data from multiple manufacturing and distribution systems to deliver actionable insights on inventory levels, production capacity, and material constraints.
+
+### Data Stack
+
+This projects features 3 tools to deliver a complete analytics solution:
+
+1. **[dbt Fusion](https://www.getdbt.com/product/fusion)** - dbt's latest engine built on Rust
+2. **[Orchestra](https://www.getorchestra.io/)** - Zero-maintenance pipeline orchestration with intelligent monitoring and auto-recovery
+3. **[Omni Analytics](https://omni.co/)** - Self-service business intelligence platform enabling stakeholders to explore data independently
+
 
 
 ---
