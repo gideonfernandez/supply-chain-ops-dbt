@@ -9,21 +9,14 @@ _powered by the dbt Fusion engine_
 
 
 
-## 🎯 Overview
+## Overview
 
 This dbt project provides a comprehensive analytics framework for supply chain operations, integrating data from multiple manufacturing and distribution systems to deliver actionable insights on inventory levels, production capacity, and material constraints.
 
-### Key Features
-
-- 🏭 **Multi-Source Integration**: Seamlessly combines data from Nulogy (manufacturing), Cadence (distribution), and Mar-Kov (raw materials)
-- 📊 **Production Forecasting**: Calculates potential production capacity based on raw material availability
-- 🔄 **Real-Time Inventory**: Aggregates finished goods inventory across multiple warehouses
-- 🧪 **Material Constraints**: Identifies bottleneck ingredients limiting production
-- 🎨 **Best Practices**: Follows dbt conventions with staging, intermediate, and mart layers
 
 ---
 
-## 🏗️ Project Architecture
+## Project Architecture
 
 ```
 supply_chain/
@@ -58,24 +51,24 @@ graph LR
 
 ---
 
-## 📋 Data Sources
+## Data Sources
 
-### 🏢 Nulogy (Manufacturing)
+### 1. Nulogy (Manufacturing)
 - **Finished Goods Inventory**: Product inventory levels with room-level granularity
 - **Work Orders**: Production planning and execution data
 - **Inventory Consumption**: Raw material usage per work order
 
-### 📦 Cadence (Distribution)
+### 2. Cadence (Distribution)
 - **Inventory FG Report**: Distribution center inventory levels
 - **Orders**: Customer order master data
 - **Order Status Events**: Order lifecycle tracking
 
-### 🧪 Mar-Kov (Raw Materials)
+### 3. Mar-Kov (Raw Materials)
 - **Raw Ingredients**: Raw material inventory with lot tracking and expiry dates
 
 ---
 
-## 🛠️ Custom Macros
+## Custom Macros
 
 Our project includes powerful reusable macros for data standardization:
 
@@ -120,11 +113,11 @@ Our project includes powerful reusable macros for data standardization:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
-- dbt Core 1.0+ or dbt Cloud
+- dbt platform, dbt core or dbt Fusion
 - Snowflake account with appropriate permissions
 - Python 3.8+
 
@@ -172,7 +165,44 @@ Our project includes powerful reusable macros for data standardization:
 
 ---
 
-## 📈 Usage Examples
+## Automation
+![Orchestra Pipeline Dashboard](images/orchestra-pipeline.png)
+*Supply Chain Analytics Pipeline running in Orchestra*
+
+This project uses [Orchestra](https://www.getorchestra.io/) for pipeline orchestration and scheduling.
+
+### Production Pipeline
+
+Our **Supply Chain Analytics Pipeline** runs automatically in production:
+
+- **Schedule**: Daily at 8:00 AM ET
+- **Environment**: Production
+- **Orchestrator**: Orchestra
+- **Tasks**: Full data refresh across all models
+
+### Why Orchestra?
+
+Orchestra provides:
+
+- **Zero-Maintenance Orchestration**: Managed solution that scales with your data team
+- **Full Stack Observability**: Real-time monitoring of all metadata and pipeline health
+- **Intelligent Alerting**: Proactive notifications before issues impact stakeholders
+- **Auto-Recovery**: Automatic retries and failure recovery without manual intervention
+- **AI-Native Architecture**: Built for modern data teams working with AI workflows
+
+### Pipeline Monitoring
+
+Track your pipeline status in real-time through the Orchestra dashboard:
+- View run history and execution times
+- Monitor task-level progress
+- Get instant alerts on failures
+- Review lineage and dependencies
+
+Learn more about Orchestra's [data orchestration capabilities](https://www.getorchestra.io/).
+
+---
+
+## Usage Examples
 
 ### Run specific model groups
 
@@ -210,7 +240,7 @@ dbt docs serve
 
 ---
 
-## 🧪 Testing Strategy
+## Testing Strategy
 
 Our project implements comprehensive data quality tests:
 
@@ -222,7 +252,7 @@ Our project implements comprehensive data quality tests:
 
 ---
 
-## 📝 Model Naming Conventions
+## Model Naming Conventions
 
 | Layer | Prefix | Example | Materialization |
 |-------|--------|---------|-----------------|
@@ -233,7 +263,7 @@ Our project implements comprehensive data quality tests:
 
 ---
 
-## 🤝 Contributing
+## dbt Best Practices
 
 We follow dbt best practices:
 
@@ -245,7 +275,7 @@ We follow dbt best practices:
 
 ---
 
-## 📚 Resources
+## Resources
 
 - [dbt Documentation](https://docs.getdbt.com/)
 - [dbt Best Practices](https://docs.getdbt.com/guides/best-practices)
@@ -254,16 +284,16 @@ We follow dbt best practices:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 👥 Maintainers
+## Developed By
 
-Gideon Fernandez, Founder & CEO at Velocity Sense
+**Gideon Fernandez**  
+Founder & CEO at Velocity Sense
 
----
-
-**Built with ❤️ using dbt Fusion**
+[gideon@velocitysense.com](mailto:gideon@velocitysense.com)  
+[LinkedIn](https://www.linkedin.com/in/gideonfernandez/)
