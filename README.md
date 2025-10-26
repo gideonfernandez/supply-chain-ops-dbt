@@ -1,6 +1,6 @@
 # 📦 Supply Chain Analytics Platform
 
-_powered by the dbt Fusion engine_
+_Powered by the dbt Fusion engine_
 
 > **A modern data transformation pipeline for multi-source supply chain operations**
 
@@ -11,7 +11,7 @@ _powered by the dbt Fusion engine_
 
 ## Overview
 
-This dbt project provides a comprehensive analytics framework for supply chain operations, integrating data from multiple manufacturing and distribution systems to deliver actionable insights on inventory levels, production capacity, and material constraints.
+This dbt project provides a comprehensive analytics framework for data-driven supply chain operations by integrating data into a single source of truth from multiple manufacturing and distribution systems to deliver actionable insights on inventory levels, production capacity, and material constraints.
 
 
 ---
@@ -82,7 +82,7 @@ Our project includes powerful reusable macros for data standardization:
 
 ---
 
-## 📊 Key Models
+## Key Models
 
 ### Staging Models
 
