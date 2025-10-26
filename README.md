@@ -202,6 +202,17 @@ Learn more about Orchestra's [data orchestration capabilities](https://www.getor
 
 ---
 
+## Business Intelligence with Omni Analytics
+
+![Supply Chain Analytics Dashboard](images/supply-chain-dashboard.png)
+*Interactive Supply Chain Analytics Dashboard in Omni*
+
+This project leverages [Omni Analytics](https://omni.co/) to deliver powerful, self-service business intelligence capabilities to stakeholders across the organization.
+
+Learn more about [Omni's business intelligence capabilities](https://omni.co/).
+
+---
+
 ## Usage Examples
 
 ### Run specific model groups
