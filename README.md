@@ -1,6 +1,6 @@
 # 📦 Supply Chain Analytics Platform
 
-_An end-to-end modern data stack integrating **dbt Fusion**, **Orchestra**, SelectStar and **Omni Analytics**_
+_An end-to-end modern data stack integrating **dbt Fusion**, **Orchestra**, **SelectStar** and **Omni Analytics**_
 
 > **A complete analytics solution from transformation to orchestration to self-service business intelligence**
 
