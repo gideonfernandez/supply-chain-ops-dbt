@@ -20,6 +20,7 @@ This projects features 3 tools to deliver a complete analytics solution:
 1. **[dbt Fusion](https://www.getdbt.com/product/fusion)** - dbt's latest engine built on Rust
 2. **[Orchestra](https://www.getorchestra.io/)** - Zero-maintenance pipeline orchestration with intelligent monitoring and auto-recovery
 3. **[Omni Analytics](https://omni.co/)** - Self-service business intelligence platform enabling stakeholders to explore data independently
+3. **[SelectStar](https://www.selectstar.com/)** - Metadata Context Platform for Data & AI
 
 
 
@@ -44,19 +45,9 @@ supply_chain/
 
 ### Data Flow
 
-```mermaid
-graph LR
-    A[Raw Sources] --> B[Staging Layer]
-    B --> C[Intermediate Layer]
-    C --> D[Marts Layer]
-    D --> E[Analytics & BI]
-    
-    style A fill:#e1f5ff
-    style B fill:#fff4e1
-    style C fill:#ffe1f5
-    style D fill:#e1ffe1
-    style E fill:#f5e1ff
-```
+![Data Lineage in dbt](images/dbt-data-lineage.png)
+*Data lineage of the inventory model in dbt*
+
 
 ---
 
@@ -126,7 +117,7 @@ Our project includes powerful reusable macros for data standardization:
 
 ### Prerequisites
 
-- dbt platform, dbt core or dbt Fusion
+- dbt Fusion
 - Snowflake account with appropriate permissions
 - Python 3.8+
 
@@ -140,7 +131,7 @@ Our project includes powerful reusable macros for data standardization:
 
 2. **Install dependencies**
    ```bash
-   dbt deps
+   dbtf deps
    ```
 
 3. **Configure your profile**
@@ -164,17 +155,17 @@ Our project includes powerful reusable macros for data standardization:
 
 4. **Load seed data**
    ```bash
-   dbt seed
+   dbtf seed
    ```
 
 5. **Run the project**
    ```bash
-   dbt build
+   dbtf build
    ```
 
 ---
 
-## Automation
+## Orchestration (Automation)
 ![Orchestra Pipeline Dashboard](images/orchestra-pipeline.png)
 *Supply Chain Analytics Pipeline running in Orchestra*
 
@@ -199,13 +190,6 @@ Orchestra provides:
 - **Auto-Recovery**: Automatic retries and failure recovery without manual intervention
 - **AI-Native Architecture**: Built for modern data teams working with AI workflows
 
-### Pipeline Monitoring
-
-Track your pipeline status in real-time through the Orchestra dashboard:
-- View run history and execution times
-- Monitor task-level progress
-- Get instant alerts on failures
-- Review lineage and dependencies
 
 Learn more about Orchestra's [data orchestration capabilities](https://www.getorchestra.io/).
 
@@ -216,47 +200,23 @@ Learn more about Orchestra's [data orchestration capabilities](https://www.getor
 ![Supply Chain Analytics Dashboard](images/supply-chain-dashboard.png)
 *Interactive Supply Chain Analytics Dashboard in Omni*
 
-This project leverages [Omni Analytics](https://omni.co/) to deliver powerful, self-service business intelligence capabilities to stakeholders across the organization.
+This project leverages [Omni Analytics](https://omni.co/) to enable self-service business intelligence capabilities to stakeholders across the organization.
 
 Learn more about [Omni's business intelligence capabilities](https://omni.co/).
 
 ---
 
-## Usage Examples
+## Metadata with SelectStar
+This project leverages [SelectStar](https://www.selectstar.com/) to provide a metadata context platform for data & AI.
+![SelectStar Metadata](images/selectstar-metadata.png)
+*Interactive metadata across the Analytics and Raw databases in Snowflake*
 
-### Run specific model groups
 
-```bash
-# Build all staging models
-dbt build --select staging.*
+![SelectStar Metadata](images/selectstar-ai-fg.png)
+*Run natural language prompts against the data warehouse to extract key insights*
 
-# Build intermediate models
-dbt build --select intermediate.*
 
-# Build marts
-dbt build --select marts.*
-
-# Build specific source
-dbt build --select staging.nulogy.*
-```
-
-### Test data quality
-
-```bash
-# Run all tests
-dbt test
-
-# Test specific model
-dbt test --select fg_forecast
-```
-
-### Generate documentation
-
-```bash
-# Generate and serve docs
-dbt docs generate
-dbt docs serve
-```
+Learn more about [SelectStar's metadata capabilities](https://www.selectstar.com/).
 
 ---
 
@@ -294,13 +254,6 @@ We follow dbt best practices:
 5. **Reusable macros** for common transformations
 
 ---
-
-## Resources
-
-- [dbt Documentation](https://docs.getdbt.com/)
-- [dbt Best Practices](https://docs.getdbt.com/guides/best-practices)
-- [dbt Discourse](https://discourse.getdbt.com/)
-- [dbt Slack Community](https://www.getdbt.com/community/join-the-community/)
 
 ---
 
