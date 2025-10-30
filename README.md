@@ -1,6 +1,6 @@
 # 📦 Supply Chain Analytics Platform
 
-_An end-to-end modern data stack integrating **dbt Fusion**, **Orchestra**, **SelectStar** and **Omni Analytics**_
+_An end-to-end modern data stack integrating **dbt Fusion**, **Orchestra**, **Select Star** and **Omni Analytics**_
 
 > **A complete analytics solution from transformation to orchestration to self-service business intelligence**
 
@@ -15,12 +15,12 @@ This project provides a comprehensive analytics framework for data-driven supply
 
 ### Data Stack
 
-This projects features 3 tools to deliver a complete analytics solution:
+This projects features 4 tools to deliver a complete analytics solution:
 
 1. **[dbt Fusion](https://www.getdbt.com/product/fusion)** - dbt's latest engine built on Rust
 2. **[Orchestra](https://www.getorchestra.io/)** - Zero-maintenance pipeline orchestration with intelligent monitoring and auto-recovery
 3. **[Omni Analytics](https://omni.co/)** - Self-service business intelligence platform enabling stakeholders to explore data independently
-3. **[SelectStar](https://www.selectstar.com/)** - Metadata Context Platform for Data & AI
+4. **[Select Star](https://www.selectstar.com/)** - Metadata Context Platform for Data & AI
 
 
 
@@ -206,17 +206,17 @@ Learn more about [Omni's business intelligence capabilities](https://omni.co/).
 
 ---
 
-## Metadata with SelectStar
-This project leverages [SelectStar](https://www.selectstar.com/) to provide a metadata context platform for data & AI.
-![SelectStar Metadata](images/selectstar-metadata.png)
+## Metadata with Select Star
+This project leverages [Select Star](https://www.selectstar.com/) to provide a metadata context platform for data & AI.
+![Select Star Metadata](images/selectstar-metadata.png)
 *Interactive metadata across the Analytics and Raw databases in Snowflake*
 
 
-![SelectStar Metadata](images/selectstar-ai-fg.png)
+![Select Star Metadata](images/selectstar-ai-fg.png)
 *Run natural language prompts against the data warehouse to extract key insights*
 
 
-Learn more about [SelectStar's metadata capabilities](https://www.selectstar.com/).
+Learn more about [Select Star's metadata capabilities](https://www.selectstar.com/).
 
 ---
 
